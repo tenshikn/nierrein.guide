@@ -77,7 +77,10 @@ export default function Database({ models }: DatabasePageProps): JSX.Element {
 
       <Tabs defaultIndex={0}>
         <TabList className="flex justify-around w-1/2 mx-auto">
-          <Tab index={0} className="hover-bg px-4 py-2">
+          <Tab
+            index={0}
+            className="selected:bg-white selected:bg-opacity-10 transition-colors rounded-md px-4 py-2"
+          >
             3D Models
           </Tab>
         </TabList>

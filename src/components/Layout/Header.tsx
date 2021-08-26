@@ -6,6 +6,42 @@ import { NAVIGATION } from "config/constants";
 import Lottie from "react-lottie-player";
 import logoData from "../../lottie/logo.json";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const NavItem = styled.li`
+  img {
+    clip-path: polygon(
+      30% 0%,
+      70% 0%,
+      100% 30%,
+      100% 70%,
+      70% 100%,
+      30% 100%,
+      0% 70%,
+      0% 30%
+    );
+  }
+
+  &:hover,
+  .active {
+    img {
+      clip-path: polygon(
+        0 28%,
+        52% 0,
+        100% 30%,
+        94% 50%,
+        98% 70%,
+        51% 100%,
+        0 69%,
+        6% 50%
+      );
+    }
+
+    span {
+      /* @apply text-beige-light; */
+    }
+  }
+`;
 
 export default function Header(): JSX.Element {
   const router = useRouter();
@@ -35,7 +71,7 @@ export default function Header(): JSX.Element {
   }, []);
 
   return (
-    <header className="container">
+    <header className="container px-4 lg:px-8">
       <div className="flex flex-col justify-center items-center flex-wrap gap-y-8 px-8 py-6">
         <Link href="/" passHref={true}>
           <a
@@ -61,9 +97,9 @@ export default function Header(): JSX.Element {
         <nav className="nav w-full lg:w-auto">
           <ul className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             {NAVIGATION.map((nav) => (
-              <li
+              <NavItem
                 key={nav.label}
-                className="nav-item lg:flex lg:justify-center lg:w-28"
+                className="nav-item lg:flex lg:justify-center lg:w-28 group"
               >
                 <Link href={nav.href} passHref={true}>
                   <a
@@ -78,13 +114,14 @@ export default function Header(): JSX.Element {
                       placeholder="blur"
                       src={nav.icon}
                       alt={`${nav.label} icon`}
+                      className="transition-all ease-out-cubic group-hover:bg-beige-dark"
                     />
-                    <span className="w-44 mt-4 text-center serif text-2xl lg:text-xl lg:w-auto">
+                    <span className="w-44 mt-4 text-center serif text-2xl lg:text-xl lg:w-auto group-hover:text-beige-light">
                       {nav.label}
                     </span>
                   </a>
                 </Link>
-              </li>
+              </NavItem>
             ))}
           </ul>
         </nav>

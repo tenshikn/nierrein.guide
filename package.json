@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src",
-    "fix": "eslint src --fix"
+    "fix": "eslint src --fix",
+    "downloads": "node ./scripts/costume-faces.mjs"
   },
   "engines": {
     "node": "16.x"

@@ -230,7 +230,7 @@ function ContentItem({
   image,
   link,
 }: FanContent): JSX.Element {
-  const resizedImage = image?.formats?.medium ?? image?.formats?.small
+  const resizedImage = image?.formats?.medium ?? image?.formats?.small;
 
   return (
     <div className="flex flex-col justify-between gap-y-4 border border-beige p-4 w-auto">
@@ -251,7 +251,7 @@ function ContentItem({
         </a>
       </div>
 
-      {(resizedImage && (
+      {resizedImage && (
         <Image
           layout="responsive"
           height={resizedImage.height}
@@ -260,7 +260,7 @@ function ContentItem({
           alt={`${author} preview image`}
           loading="lazy"
         />
-      ))}
+      )}
 
       <span>Published {new Date(published_at).toLocaleDateString()}</span>
     </div>

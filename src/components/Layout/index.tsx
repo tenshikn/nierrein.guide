@@ -14,7 +14,7 @@ function Layout({ children, className }: LayoutProps): JSX.Element {
 
       <main
         className={classNames(
-          "container flex flex-col w-full flex-1",
+          "container flex flex-col w-full flex-1 px-4 lg:px-8",
           className
         )}
       >

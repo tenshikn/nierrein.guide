@@ -5,7 +5,7 @@ import slugify from "slugify";
 export default function Footer(): JSX.Element {
   return (
     <footer className="flex flex-col items-center justify-center w-full py-14 border-t border-white border-opacity-20">
-      <div className="container">
+      <div className="container px-4 lg:px-8">
         <section className="flex flex-col flex-wrap mt-14 w-full">
           <h2>Wonderful people that are working on this website</h2>
 
@@ -34,7 +34,7 @@ export default function Footer(): JSX.Element {
 
 function Contributor({ credit }): JSX.Element {
   const Content = (
-    <li className="flex items-center gap-x-6 hover-bg w-full p-2">
+    <li className="flex items-center gap-x-6 transition-colors rounded-md w-full p-2 selected:bg-white selected:bg-opacity-10">
       <Image
         height="64"
         width="64"
@@ -54,7 +54,7 @@ function Contributor({ credit }): JSX.Element {
         href={credit.link}
         rel="noopener noreferrer"
         target="_blank"
-        className="w-full"
+        className="w-full underline-dotted hover:no-underline"
       >
         {Content}
       </a>
